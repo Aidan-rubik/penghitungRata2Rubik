@@ -13,75 +13,57 @@
     <title>Penghitung rata-rata rubik</title>
 </head>
 <body>
-    <div x-data="{
-        textJ: 'Penghitung Rata-rata Rubik',
-        textA: 'Ao5',
-        textM: 'Mo3',
-        aoLima: false,
+    <div x-data="{ aoLima: false,
         moTiga: false,
         waktuSatu: '',
         waktuDua: '',
         waktuTiga: '',
         waktuEmpat: '',
-        waktuLima: '',
-    }"
+        waktuLima: '', }"
     class="h-screen" :class="$store.modeGelap.on && 'bg-black'">
-    <nav
-    class="border-3 p-2 bg-blue-300 relative top-0 left-0 w-screen h-24 flex flex-row shadow"
+    <navclass="border-3 p-2 bg-blue-300 relative top-0 left-0 w-screen h-24 flex flex-row shadow"
     :class="$store.modeGelap.on && 'bg-blue-900'">
-        <h1 class="text-2xl font-bold grow" :class="$store.modeGelap.on && 'text-white'" x-text="textJ"></h1>
-        <button 
-        class="rounded-xl border-4 text-lg bg-blue-200 text-black p-1.5 font-bold hover:bg-blue-500 grow"
+        <h1 class="text-2xl font-bold grow" :class="$store.modeGelap.on && 'text-white'">Penghitung Rata-Rata Rubik</h1>
+        <button class="rounded-xl border-4 text-lg bg-blue-200 text-black p-1.5 font-bold hover:bg-blue-500 grow"
         :class="$store.modeGelap.on && 'bg-blue-800 text-white'"
         @click="$store.modeGelap.toggle()"
         x-text="$store.modeGelap.on ? 'Mode Terang' : 'Mode Gelap'"></button>
     </nav>
     <div class="flex justify-center" :class="$store.modeGelap.on && 'bg-black'">
-        <button 
-        class="text-medium border-3 rounded inline bg-gray-50 hover:bg-gray-300 p-1 my-2 mx-1 font-bold"
+        <button class="text-medium border-3 rounded inline bg-gray-50 hover:bg-gray-300 p-1 my-2 mx-1 font-bold"
         :class="$store.modeGelap.on && 'text-white bg-gray-900 hover:bg-gray-500'"
-        @click="aoLima= true, moTiga= false"
-        x-text="textA"></button>
-        <button 
-        class="text-medium text-gray-900 inline border-3 rounded bg-gray-50 hover:bg-gray-300 p-1 my-2 mx-1 font-bold" 
+        @click="aoLima= true, moTiga= false">Ao5</button>
+        <button class="text-medium text-gray-900 inline border-3 rounded bg-gray-50 hover:bg-gray-300 p-1 my-2 mx-1 font-bold" 
         :class="$store.modeGelap.on && 'text-white bg-gray-900 hover:bg-gray-500'"
-        @click="aoLima= false, moTiga= true"
-        x-text="textM"></button>
+        @click="aoLima= false, moTiga= true">Mo3</button>
     </div>
-        <div 
-        class="border border-3 rounded-xl block content-center flex flex-col items-center"
-        :class="$store.modeGelap.on && 'bg-black text-white'"
-        x-show="aoLima" x-transition>
-            <h1 
-            class="text-lg font-bold text-center"
-            :class="$store.modeGelap.on"
-            x-text="textA"></h1>
+    	<!-- Penghitung Ao5 -->
+        <div class="border border-3 rounded-xl block content-center flex flex-col items-center"
+        :class="$store.modeGelap.on && 'bg-black text-white'" x-show="aoLima" x-transition>
+            <h1 class="text-lg font-bold text-center"
+	    :class="$store.modeGelap.on">Ao5</h1>
                 <input class="border-3 rounded-lg block" type="text" x-model="waktuSatu" placeholder="waktu pertama">
                 <input class="border-3 rounded-lg block" type="text" x-model="waktuDua" placeholder="waktu kedua">
                 <input class="border-3 rounded-lg block" type="text" x-model="waktuTiga" placeholder="waktu ketiga">
                 <input class="border-3 rounded-lg block" type="text" x-model="waktuEmpat" placeholder="waktu keempat">
                 <input class="border-3 rounded-lg block" type="text" x-model="waktuLima" placeholder="waktu kelima">
-                <button 
-                class="border border-2 rounded-md my-1 text-lg hover:bg-gray-200"
+                <button class="border border-2 rounded-md my-1 text-lg hover:bg-gray-200"
                 :class="$store.modeGelap.on && 'hover:bg-gray-900'"
                 @click="$store.rataRata.rataRataAofive(waktuSatu, waktuDua, waktuTiga, waktuEmpat, waktuLima)">Submit</button>
                 <h2 class="text-lg font-bold underline-offset-1" x-text="$store.rataRata.hasilAoFive"></h2>
         </div>
-        <div 
-        class="flex flex-col items-center border border-black border-3 rounded-lg"
+	<!-- Penghitung Mo3 -->
+        <div class="flex flex-col items-center border border-black border-3 rounded-lg"
         :class="$store.modeGelap.on && 'bg-black text-white border-white'"
-        x-show="moTiga" 
-        x-transition>
-            <h1 class="font-bold text-lg" x-text="textM"></h1>
+        x-show="moTiga" x-transition>
+            <h1 class="font-bold text-lg">Mo3</h1>
             <input class="border-2 border-gray-800 rounded-lg" type="text" x-model="waktuSatu" placeholder="Waktu Pertama">
             <input class="border-2 border-gray-800 rounded-lg" type="text" x-model="waktuDua" placeholder="Waktu Kedua">
             <input class="border-2 border-gray-800 rounded-lg" type="text" x-model="waktuTiga" placeholder="Waktu Ketiga">
-            <button 
-            class="my-1 relative border border-black border-2 rounded-md hover:bg-gray-200 shadow-md"
+            <button class="my-1 relative border border-black border-2 rounded-md hover:bg-gray-200 shadow-md"
             :class="$store.modeGelap.on && 'border-white hover:bg-gray-900'"
             @click="$store.rataRata.rataRataMothree(waktuSatu, waktuDua, waktuTiga)">Submit</button>
-            <h2 
-            class="my-auto text-xl font-bold block" 
+            <h2 class="my-auto text-xl font-bold block" 
             x-text="$store.rataRata.hasilMoThree"></h2>
         </div>
     </div>
