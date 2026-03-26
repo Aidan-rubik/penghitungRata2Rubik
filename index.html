@@ -53,19 +53,14 @@
         :class="$store.modeGelap.on && 'bg-black text-white border-white'"
         x-show="moTiga" x-transition>
             <h1 class="font-bold text-lg">Mo3</h1>
-            <input class="border-2 border-gray-800 rounded-lg" type="text" x-model="waktuSatu" placeholder="Waktu Pertama">
-            <input class="border-2 border-gray-800 rounded-lg" type="text" x-model="waktuDua" placeholder="Waktu Kedua">
-            <input class="border-md border-gray-800 rounded-lg" type="text" x-model="waktuTiga" placeholder="Waktu Ketiga">
+            <input class="border-3 border-gray-800 rounded-lg" type="text" x-model="waktuSatu" placeholder="Waktu Pertama">
+            <input class="border-3 border-gray-800 rounded-lg" type="text" x-model="waktuDua" placeholder="Waktu Kedua">
+            <input class="border-3 border-gray-800 rounded-lg" type="text" x-model="waktuTiga" placeholder="Waktu Ketiga">
             <button class="my-1 relative border border-black border-2 rounded-md hover:bg-gray-200 shadow-md"
             :class="$store.modeGelap.on && 'border-white hover:bg-gray-900'"
             @click="$store.rataRata.rataRataMothree(waktuSatu, waktuDua, waktuTiga)">Submit</button>
             <h2 class="my-auto text-xl font-bold block" x-text="$store.rataRata.hasilMoThree"></h2>
         </div>
-	<!--
-	<footer>
-	<h3 class="text-md text-black" :class="$store.modeGelap.on && 'text-white'">Jika ada masalah, boleh dikasih tahu di <a class="text-blue-400" href="https://github.com/Aidan-rubik/penghitungrata-rata-rubik/issues">sini</a> ya</h3>
-	</footer>
-	-->
     </div>
     <script src="main.js"></script>
 </body>
